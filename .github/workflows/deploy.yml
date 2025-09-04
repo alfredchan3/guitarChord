@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
@@ -15,6 +15,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build Project
     
     steps:
       - name: Checkout
@@ -41,6 +42,9 @@ jobs:
           path: ./out
           
   deploy:
+    name: Deploy to GitHub Pages
+    # 只在主分支上部署到GitHub Pages
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
