@@ -14,15 +14,15 @@ class Home extends Component {
     this.refs.chordSelect.hideLoading();
   }
 
-  selectFinish(chordTone) {
-    this.refs.chordDraw.draw(chordTone);
+  selectFinish(chordTone, inversion = 0) {
+    this.refs.chordDraw.draw(chordTone, inversion);
   }
 
   render() {
     return (
       <>
         <Head>
-          <title>吉他和弦推导</title>
+          <title>吉他和弦推导WEB</title>
           <meta name="description" content="Guitar chord deduction tool" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/guitar.ico" />

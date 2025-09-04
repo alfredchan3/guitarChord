@@ -136,6 +136,39 @@
 .loadingBox .loading{
 	height: 100%;
 }
+.inversionSelect{
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+}
+.inversionButtons{
+	width: 100%;
+	text-align: center;
+}
+.inversionBtn{
+	display: inline-block;
+	text-align: center;
+	width: 15%;
+	line-height: 30px;
+	font-size: 13px;
+	min-width: 60px;
+	max-width: 120px;
+	background: #fff;
+	color: #aaa;
+	margin-right: 5px;
+	border-radius: 2px;
+	cursor: pointer;
+	-webkit-transition: 0.3s ease;
+	-ms-transition: 0.3s ease;
+	transition: 0.3s ease;
+}
+.inversionBtn:last-of-type{
+	margin-right: 0;
+}
+.inversionBtn.active{
+	background: #ddd;
+	color: #666;
+}
 .noselect {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;

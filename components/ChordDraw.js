@@ -78,10 +78,10 @@ class ChordDraw extends Component {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  draw(chordTone) {
+  draw(chordTone, inversion = 0) {
     let chord = new GuitarChord();
     let chordName = new ChordName().getChordName(chordTone);
-    let chordResult = chord.chord(chordTone);
+    let chordResult = chord.chord(chordTone, inversion);
     let svg = new ChordSvg();
     let container = document.getElementById("chord_draw");
     container.innerHTML = "";
@@ -104,7 +104,10 @@ class ChordDraw extends Component {
         });
       }
       chordResult.forEach((chordItem) => {
-        svg.drawChord(chordTone, chordItem, document.getElementById("chord_draw"));
+        // 传递转位信息给绘图函数
+        let originalChordTone = inversion > 0 ? chordTone : null;
+        let displayChordTone = chordResult.length > 0 ? chord.chordTone : chordTone;
+        svg.drawChord(displayChordTone, chordItem, document.getElementById("chord_draw"), originalChordTone, inversion);
       });
     }, 500);
   }

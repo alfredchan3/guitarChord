@@ -16,7 +16,8 @@ class ChordSelect extends Component {
       keyBarShow2: false,
       keyBarShow3: false,
       keyBarShow4: false,
-      loading: false
+      loading: false,
+      inversion: 0  // 转位级别：0=原位，1=第一转位，2=第二转位，3=第三转位
     }
   }
 
@@ -64,7 +65,7 @@ class ChordSelect extends Component {
     _state["keyBarShow" + (index + 1)] = false;
     _state.loading = true;
     this.setState(_state);
-    this.props.selectFinish(this.state.chordTone);
+    this.props.selectFinish(this.state.chordTone, this.state.inversion);
   }
 
   mouseDown(index, e) {
@@ -117,7 +118,8 @@ class ChordSelect extends Component {
   chordCountChange(count) {
     this.setState({
       chordTone: this.state.chordTone.slice(0, count),
-      type: count
+      type: count,
+      inversion: 0  // 重置转位为原位
     });
     if (count === 4 && this.state.chordTone.length < 4) {
       this.setState({
@@ -133,6 +135,26 @@ class ChordSelect extends Component {
     });
   }
 
+  // 转位和弦选择
+  inversionChange(inversion) {
+    this.setState({
+      inversion: inversion,
+      loading: true
+    });
+    this.props.selectFinish(this.state.chordTone, inversion);
+  }
+
+  // 获取转位名称
+  getInversionName(inversion) {
+    switch(inversion) {
+      case 0: return '原位';
+      case 1: return '一转位';
+      case 2: return '二转位';
+      case 3: return '三转位';
+      default: return '原位';
+    }
+  }
+
   render() {
     return (
       <div className={styles.containerChordSelect}>
@@ -141,6 +163,20 @@ class ChordSelect extends Component {
         <div className={styles.chordCount}>
           <div className={`${styles.noselect} ${this.state.type === 3 ? styles.active : ""}`} onClick={this.chordCountChange.bind(this, 3)}>三音和弦</div>
           <div className={`${styles.noselect} ${this.state.type === 4 ? styles.active : ""}`} onClick={this.chordCountChange.bind(this, 4)}>四音和弦</div>
+        </div>
+        <div className={styles.inversionSelect}>
+          <div className={`${styles.selectNotify} ${styles.noselect}`}>和弦转位</div>
+          <div className={styles.inversionButtons}>
+            {[0, 1, 2, ...(this.state.type === 4 ? [3] : [])].map(inv => (
+              <div 
+                key={inv}
+                className={`${styles.noselect} ${styles.inversionBtn} ${this.state.inversion === inv ? styles.active : ""}`} 
+                onClick={this.inversionChange.bind(this, inv)}
+              >
+                {this.getInversionName(inv)}
+              </div>
+            ))}
+          </div>
         </div>
         <div className={`${styles.loadingBox} ${this.state.loading ? styles.show : ""}`}>
           <img src="/bars.svg" alt="" className={styles.loading} />
