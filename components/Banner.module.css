@@ -1,0 +1,96 @@
+.banner {
+  background: #f8f9fa;
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 20px;
+}
+
+.bannerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.bannerItem {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  min-width: auto;
+  box-shadow: none;
+}
+
+.bannerItem:hover {
+  border-color: #adb5bd;
+  background: #f8f9fa;
+}
+
+.bannerItem.active {
+  background: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+.icon {
+  font-size: 16px;
+  display: block;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+  text-align: left;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 700px) {
+  .bannerContainer {
+    gap: 8px;
+    padding: 0 15px;
+  }
+  
+  .bannerItem {
+    padding: 6px 12px;
+  }
+  
+  .icon {
+    font-size: 14px;
+  }
+  
+  .text {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .banner {
+    padding: 8px 0;
+  }
+  
+  .bannerContainer {
+    gap: 6px;
+    padding: 0 10px;
+  }
+  
+  .bannerItem {
+    padding: 4px 10px;
+  }
+  
+  .icon {
+    font-size: 12px;
+  }
+  
+  .text {
+    font-size: 12px;
+  }
+}

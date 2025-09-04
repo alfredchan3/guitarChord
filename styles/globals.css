@@ -1,45 +1,48 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS','Times New Roman', Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
 }
-.chord-svg{
+
+.chordSvg{
   width: 200px;
   height: 220px;
 }
-.chord-rect{
+.chordRect{
   width: 100px;
   height: 100px;
   fill:none;
   stroke:#666;
   stroke-width:2;
 }
-.chord-gird{
+.chordGird{
   stroke: #666;
   stroke-width: 2;
   fill: none;
 }
-.chord-forbidden,.chord-blank-circle{
+.chordForbidden,.chordBlankCircle{
   stroke: #666;
   stroke-width: 1;
   fill: none;
 }
-.chord-block-circle{
+.chordBlockCircle{
   fill: #333;
 }
-.chord-barre{
+.chordBarre{
   height: 16px;
   fill:#333;
 }
-.chord-barre-fret{
+.chordBarreFret{
   fill:#333;
   font-size: 14px;
   font-weight: 700;
 }
-.chord-string-key{
+.chordStringKey{
   fill:#333;
   font-size: 10px;
   font-weight: 700;
 }
-.chord-name{
+.chordName{
   fill:#333;
   font-size: 20px;
   font-weight: 700;
@@ -50,17 +53,14 @@
   to { transform: rotate(360deg); }
 }
 
-
-
-
 @media screen and (max-width: 700px) {
-  .chord-svg{
+  .chordSvg{
     width: 140px;
     height: 155px;
   }
 }
 @media screen and (max-width: 320px) {
-  .chord-svg{
+  .chordSvg{
     width: 120px;
     height: 135px;
   }

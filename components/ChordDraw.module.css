@@ -1,7 +1,7 @@
-.container-chordDraw{
+.containerChordDraw{
 	padding-bottom:20px;
 }
-.container-chordDraw .draw-info{
+.containerChordDraw .drawInfo{
 	opacity: 0;
 	line-height: 0px;
 	font-size: 15px;
@@ -12,7 +12,7 @@
 	-ms-transition: 0.3s ease;
 	transition: 0.3s ease;
 }
-.container-chordDraw .draw-info.show{
+.containerChordDraw .drawInfo.show{
 	opacity: 1;
 	line-height: 25px;
 	margin-bottom: 10px;
