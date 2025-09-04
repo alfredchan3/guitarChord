@@ -3,6 +3,7 @@ import Head from 'next/head';
 import ChordSelect from '../components/ChordSelect';
 import ChordDraw from '../components/ChordDraw';
 import Banner from '../components/Banner';
+import CircleOfFifths from '../components/CircleOfFifths';
 import styles from '../styles/Home.module.css';
 
 class Home extends Component {
@@ -45,10 +46,7 @@ class Home extends Component {
             </>
           )}
           {currentMode === 'circle' && (
-            <div className={styles.circleOfFifths}>
-              <h2>五度圈</h2>
-              <p>五度圈功能即将上线，敬请期待！</p>
-            </div>
+            <CircleOfFifths />
           )}
         </div>
       </>
